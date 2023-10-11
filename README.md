@@ -25,3 +25,7 @@ Typical S2-Tiles have an extent of 109800m*109800m (10980px*10980px @ 10m resolu
 
 The files are stored as GeoTiff images and already contain information like projection parameters, resolution and other information as metadata. 
 For more detailed information about specific tiles, you can access their metadata using QGIS (GUI) or gdalinfo via CLI (https://gdal.org/programs/gdalinfo.html)
+
+## L2A vs L1C
+L1C and L2A refer to the processing level of a Sentinel-2 dataset. Level-1C (L1C) is mostly raw data as caputured by the sensor (also called Top Of Atmosphere), while L2A data includes things like
+atmospheric correction and the Scene-Classification-Layer (SCL)
