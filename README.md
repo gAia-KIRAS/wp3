@@ -21,7 +21,7 @@ B02 -> Band Number in format B##. Available bands and resolutions on kronos: 2 (
 
 
 ## Resolution and Size
-Typical S2-Tiles have an extent of 109800m*109800m within their respective UTM projection zone. 
+Typical S2-Tiles have an extent of 109800m*109800m (10980px*10980px @ 10m resolution) within their respective UTM projection zone. 
 
-The files are stored as GeoTiff and already contain information like projection parameters and resolution information as metadata. 
+The files are stored as GeoTiff images and already contain information like projection parameters, resolution and other information as metadata. 
 For more detailed information about specific tiles, you can access their metadata using QGIS (GUI) or gdalinfo via CLI (https://gdal.org/programs/gdalinfo.html)
