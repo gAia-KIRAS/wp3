@@ -21,11 +21,12 @@ B02 -> Band Number in format B##. Available bands and resolutions on kronos: 2 (
 
 
 ## Resolution and Size
-Typical S2-Tiles have an extent of 109800m*109800m (10980px*10980px @ 10m resolution) within their respective UTM projection zone. 
+Typical S2-Tiles have an extent of 109800m * 109800m (10980px * 10980px @ 10m resolution) within their respective UTM projection zone. 
 
 The files are stored as GeoTiff images and already contain information like projection parameters, resolution and other information as metadata. 
 For more detailed information about specific tiles, you can access their metadata using QGIS (GUI) or gdalinfo via CLI (https://gdal.org/programs/gdalinfo.html)
 
 ## L2A vs L1C
-L1C and L2A refer to the processing level of a Sentinel-2 dataset. Level-1C (L1C) is mostly raw data as caputured by the sensor (also called Top Of Atmosphere), while L2A data includes things like
-atmospheric correction and the Scene-Classification-Layer (SCL)
+L1C and L2A refer to the processing level of a Sentinel-2 dataset. Level-1C (L1C) is mostly raw data as captured by the sensor (also called Top Of Atmosphere), while L2A data is already corrected for atmospheric effects and includes other products like the Scene-Classification-Layer (SCL). All provided S2 data on kronos is L2A. 
+
+For a more detailed description of S2-L2A please have a look at official technical documentations like https://docs.sentinel-hub.com/api/latest/data/sentinel-2-l2a/
