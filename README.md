@@ -20,7 +20,7 @@ S2A -> Sentinel-2 Sensor ID
 B02 -> Band Number in format B##. Available bands and resolutions on kronos: 2 (10m),3 (10m),4 (10m),8 (10m),11 (20m) and SCL (20m).  
 
 
-*Resolution and Size*
+## Resolution and Size
 Typical S2-Tiles have an extent of 109800m*109800m within their respective UTM projection zone. 
 
 The files are stored as GeoTiff and already contain information like projection parameters and resolution information as metadata. 
