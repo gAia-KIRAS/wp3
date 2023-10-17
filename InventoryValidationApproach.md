@@ -90,4 +90,6 @@ Validation:
 
 - Google earth Pro should open and zoom automatically to the area you clicked on in QGIS
 
-- Validate the polygon using the Time Slider
+- Check for visible landslides in the area, also utilizing Google Earths Time Slider
+
+- In case a Landslide is confirmed, enter the (aproximate) year into the attribute table column `VisibleGE`
