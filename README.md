@@ -30,3 +30,40 @@ For more detailed information about specific tiles, you can access their metadat
 L1C and L2A refer to the processing level of a Sentinel-2 dataset. Level-1C (L1C) is mostly raw data as captured by the sensor (also called Top Of Atmosphere), while L2A data is already corrected for atmospheric effects and includes other products like the Scene-Classification-Layer (SCL). All provided S2 data on kronos is L2A. 
 
 For a more detailed description of S2-L2A please have a look at official technical documentations like https://docs.sentinel-hub.com/api/latest/data/sentinel-2-l2a/
+
+
+## WP3 Data Outputs
+
+***TILE_ID_NDVI_change_result.tif***  
+The main output. Raster of data type Float32 containing the highest observed NDVI change value observed across the observation period. The corresponding year is stored in ``TILE_ID_year.tif``. This raster is already masked, meaning, values which do not meet certain criteria and threshold values are set to a nodata value in order to reduce noise and artefacts:
+
+- pixels where the largest observed NDVI change is positive. 
+- pixels where the compared years for largest observed NDVI change present negative NDVI values, which indicates water surfaces.
+- pixels where the largest observed NDVI change is within the 95th-percentile of the raster in order to exlude less significant areas. The cutoff value has been set manually by comparing the results with known landslide events (e.g. the events shown in figure below).
+
+
+![Alt text](<README.assets/masked change result mosaic.png>)
+
+
+
+***TILE_ID_year.tif***  
+Raster of data type UINT16 containing the year (e.g. 2019) of the highest observed NDVI change, i.e. the year of a possible landslide event. A value is computed for every pixel, regardless of the magnitude of highest observed change across the observation period.
+
+![year](README.assets/year.png)
+
+
+***TILE_ID_p0_stack_2018to2022.tif***  
+Raster of data type Float32 containing the mean of the NDVI signal of each year as a separate band, where the first band corresponds to the earliest year of the timeseries (Band 1 - 2018, Band 2 - 2019, ...).
+
+***TILE_ID_year_masked.tif***  
+The same as ``TILE_ID_year.tif`` but with the no-data mask of ``TILE_ID_NDVI_change_result.tif`` applied. This was used to compute raster statistics for the event year within the polygons of the inventory data. 
+
+
+***mosaic_\*.tif***  
+Combined raster mosaics of all tiles for the respective output. To assure a common coordinate reference system between the output and the inventory data, the mosaiced raster outputs were reprojected and saved in EPSG:31258 - MGI / Austria GK M31.
+
+![Alt text](<README.assets/masked year mosaic.png>)
+
+
+
+
