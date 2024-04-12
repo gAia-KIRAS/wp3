@@ -35,7 +35,7 @@ For a more detailed description of S2-L2A please have a look at official technic
 ## WP3 Data Outputs
 
 ***TILE_ID_NDVI_change_result.tif***  
-The main output. Raster of data type Float32 containing the highest observed NDVI change value observed across the observation period. The corresponding year is stored in ``TILE_ID_year.tif``. This raster is already masked, meaning, values which do not meet certain criteria and threshold values are set to a nodata value in order to reduce noise and artefacts:
+The main output. Raster of data type Float32 containing the most negative observed NDVI change value observed across the observation period. The corresponding year is stored in ``TILE_ID_year.tif``. This raster is already masked, meaning, values which do not meet certain criteria and threshold values are set to a nodata value in order to reduce noise and artefacts:
 
 - pixels where the largest observed NDVI change is positive. 
 - pixels where the compared years for largest observed NDVI change present negative NDVI values, which indicates water surfaces.
@@ -58,6 +58,8 @@ Raster of data type Float32 containing the mean of the NDVI signal of each year 
 ***TILE_ID_year_masked.tif***  
 The same as ``TILE_ID_year.tif`` but with the no-data mask of ``TILE_ID_NDVI_change_result.tif`` applied. This was used to compute raster statistics for the event year within the polygons of the inventory data. 
 
+***TILE_ID_min_change.tif***
+The main output, without any further filtering or masking. Raster of data type Float32 containing the most negative observed NDVI change value observed across the observation period.
 
 ***mosaic_\*.tif***  
 Combined raster mosaics of all tiles for the respective output. To assure a common coordinate reference system between the output and the inventory data, the mosaiced raster outputs were reprojected and saved in EPSG:31258 - MGI / Austria GK M31.
